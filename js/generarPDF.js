@@ -1412,7 +1412,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
             pageSize: 'A4',
-            pageMargins: [40, 60, 40, 60]
+            pageMargins: [40, 60, 40, 60],
+            footer: function (currentPage, pageCount) {
+                return {
+                  margin: [40, 10],
+                  stack: [
+                    {
+                      canvas: [
+                        {
+                          type: 'line',
+                          x1: 40, y1: 0,
+                          x2: 515, y2: 0,
+                          lineWidth: 0.5,
+                          lineColor: '#CCCCCC'
+                        }
+                      ]
+                    },
+                    {
+                      text: 'www.pcie.genda.cl',
+                      alignment: 'center',
+                      fontSize: 9,
+                      color: '#555555',
+                      margin: [0, 5, 0, 0]
+                    }
+                  ]
+                };
+              }
         };
 
         let nombreArchivo = 'Pauta_Cotejo_Inclusion_Educativa.pdf'; // nombre por defecto
